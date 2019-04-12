@@ -6,13 +6,11 @@ import { AlertController, ToastController } from '@ionic/angular';
   templateUrl: './tab4.page.html',
   styleUrls: ['./tab4.page.scss'],
 })
-export class Tab4Page implements OnInit {
+export class Tab4Page {
 
+  tasks: any [] =[];
   constructor(private alertCtrl: AlertController, private toastCtrl: ToastController) { }
 
-  ngOnInit() { 
-  
-  }
 
   async showAdd(){
     const alert = await this.alertCtrl.create({
@@ -53,5 +51,8 @@ export class Tab4Page implements OnInit {
       toast.present();
       return;
     }
+    let task = {name: TarefaAFazer, done: false};
+
+    this.tasks.push(task);
   }
 }
